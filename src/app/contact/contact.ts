@@ -21,9 +21,9 @@ export class Contact {
   statusType: 'success' | 'error' | '' = '';
   isSending = false;
 
-  private serviceId = 'YOUR_SERVICE_ID';
-  private templateId = 'YOUR_TEMPLATE_ID';
-  private publicKey = 'YOUR_PUBLIC_KEY';
+  private serviceId = 'service_xojuajd';
+  private templateId = 'template_8idu06e';
+  private publicKey = 'lbb9C6vfUf0PAGEIS';
 
   async sendMessage(form: NgForm) {
     if (!form.valid) {

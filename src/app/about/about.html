@@ -1,1 +1,47 @@
-<p>about works!</p>
+<section id="about" class="about-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 mb-4 mb-lg-0 px-5">
+        <img src="Admin.webp" alt="Admin" class="about-image img-fluid rounded">
+      </div>
+      <div class="col-lg-7">
+        <h2 class="display-5 fw-bold">About me</h2>
+        <p class="lead mt-4 text-secondary text-start">
+          IT Administrator and Front‑End Developer with a strong background in enterprise system management, and modern UI engineering.
+          Experienced in building Angular‑based interfaces, automating deployments with Jenkins and Docker, and implementing
+          Cypress/Jasmine testing to ensure code reliability. Skilled in Windows environments and cloud‑based backup solutions.
+          Combines deep infrastructure knowledge with front-end development expertise to deliver stable systems, scalable applications,
+          and efficient development pipelines.
+        </p>
+        <ul class="nav nav-tabs mt-4" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" [class.active]="activeTab() === 'skills'" type="button" (click)="selectTab('skills')">Skills</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" [class.active]="activeTab() === 'education'" type="button" (click)="selectTab('education')">Education</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" [class.active]="activeTab() === 'hobbies'" type="button" (click)="selectTab('hobbies')">Hobbies</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" [class.active]="activeTab() === 'references'" type="button" (click)="selectTab('references')">References</button>
+          </li>
+        </ul>
+        <div class="tab-content mt-3">
+          <div class="tab-pane" [class.show]="activeTab() === 'skills'" [class.active]="activeTab() === 'skills'">
+            <p class="mb-0 text-black">Experienced in Angular, Bootstrap, Jenkins, Docker, Cypress, Jasmine, and Windows system administration.</p>
+          </div>
+          <div class="tab-pane" [class.show]="activeTab() === 'education'" [class.active]="activeTab() === 'education'">
+            <p class="mb-0 text-black">Education includes IT and software development training with a focus on enterprise systems and cloud backup solutions.</p>
+          </div>
+          <div class="tab-pane" [class.show]="activeTab() === 'hobbies'" [class.active]="activeTab() === 'hobbies'">
+            <p class="mb-0 text-black">Enjoy hands-on Windows automation, UI development, and exploring new cloud-native tools and workflows.</p>
+          </div>
+          <div class="tab-pane" [class.show]="activeTab() === 'references'" [class.active]="activeTab() === 'references'">
+            <p class="mb-0 text-black">References available on request from colleagues and leadership across IT infrastructure and front-end projects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

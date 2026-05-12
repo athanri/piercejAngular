@@ -1,1 +1,42 @@
-<p>projects works!</p>
+<section id="projects" class="projects-section py-5">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-start justify-content-between mb-4">
+      <div>
+        <h2 class="display-5 fw-bold">Projects</h2>
+        <p class="text-secondary mt-2 mb-0">A professional selection of recent work, organized by technology.</p>
+      </div>
+      <div class="filter-buttons btn-group mt-3 mt-md-0" role="group" aria-label="Project filters">
+        <button type="button" class="btn" [class.active]="filter() === 'all'" (click)="selectFilter('all')">All</button>
+        <button type="button" class="btn" [class.active]="filter() === 'html-css'" (click)="selectFilter('html-css')">HTML / CSS</button>
+        <button type="button" class="btn" [class.active]="filter() === 'wordpress'" (click)="selectFilter('wordpress')">WordPress</button>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-xl-4" *ngFor="let project of filteredProjects()">
+        <div class="project-card">
+          <div class="project-image-wrapper position-relative">
+            <img [src]="project.image" [alt]="project.title" class="project-image img-fluid">
+            <div class="overlay-buttons d-flex justify-content-center align-items-center gap-3">
+              <a class="overlay-btn" [href]="project.viewLink" target="_blank" rel="noopener" aria-label="View {{ project.title }}">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 5C7 5 2.73 8.11 1 12C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 12C21.27 8.11 17 5 12 5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="currentColor"/>
+                </svg>
+              </a>
+              <a class="overlay-btn" [href]="project.category === 'wordpress' ? null : project.codeLink" [class.disabled]="project.category === 'wordpress'" target="_blank" rel="noopener" aria-label="View code for {{ project.title }}">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6L15 11L10 16L8.59 16.59ZM15.41 16.59L14 16L18.59 11.41L14 6.83L15.41 6.59L21.41 12.59L15.41 16.59Z" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="project-meta p-3">
+            <span class="badge category-badge">{{ project.category === 'wordpress' ? 'WordPress' : 'HTML / CSS' }}</span>
+            <h3 class="h5 mt-3 mb-2">{{ project.title }}</h3>
+            <p class="text-secondary mb-0">Clean, responsive design with modern front-end best practices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

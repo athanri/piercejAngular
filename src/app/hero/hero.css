@@ -1,5 +1,6 @@
 .hero {
-  background-color: white;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(115, 10, 0, 0.12);
 }
 
 .gradient-text {
@@ -12,10 +13,13 @@
 .typing-text {
   position: relative;
   display: inline-block;
+  line-height: 1.2;
+  padding-bottom: 0.08em;
 }
 
 .cursor {
   display: inline-block;
+  vertical-align: bottom;
   width: 3px;
   height: 1em;
   background: linear-gradient(135deg, #730A00, #a81c0a);
@@ -30,4 +34,34 @@
   50%, 100% {
     opacity: 0;
   }
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 15px rgba(115, 10, 0, 0.15);
+}
+
+.hero-actions .btn {
+  min-width: 160px;
+}
+
+.hero-actions .btn-primary {
+  background-color: #730A00;
+  border-color: #730A00;
+}
+
+.hero-actions .btn-primary:hover {
+  background-color: #8e1d0d;
+  border-color: #8e1d0d;
+}
+
+.hero-actions .btn-outline-primary {
+  color: #730A00;
+  border-color: #730A00;
+}
+
+.hero-actions .btn-outline-primary:hover {
+  background-color: #730A00;
+  color: white;
 }

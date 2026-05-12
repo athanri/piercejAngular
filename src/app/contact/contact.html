@@ -1,1 +1,84 @@
-<p>contact works!</p>
+<section id="contact" class="contact-section py-5">
+  <div class="container">
+    <h2 class="display-5 fw-bold text-center">Contact</h2>
+    <p class="lead mt-3 text-secondary text-center">Reach out for hiring, collaboration, or project inquiries.</p>
+
+    <div *ngIf="status" class="alert" [class.alert-success]="statusType === 'success'" [class.alert-danger]="statusType === 'error'">
+      {{ status }}
+    </div>
+
+    <form #contactForm="ngForm" class="contact-form mt-5" (ngSubmit)="sendMessage(contactForm)">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email Address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            class="form-control"
+            placeholder="you@example.com"
+            required
+            [(ngModel)]="formData.email"
+          />
+          <div *ngIf="contactForm.submitted && contactForm.controls['email'].invalid" class="invalid-feedback d-block">
+            Please enter a valid email address.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="name" class="form-label">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            class="form-control"
+            placeholder="Your name"
+            required
+            [(ngModel)]="formData.name"
+          />
+          <div *ngIf="contactForm.submitted && contactForm.controls['name'].invalid" class="invalid-feedback d-block">
+            Please enter your name.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="subject" class="form-label">Subject</label>
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            class="form-control"
+            placeholder="Message subject"
+            required
+            [(ngModel)]="formData.subject"
+          />
+          <div *ngIf="contactForm.submitted && contactForm.controls['subject'].invalid" class="invalid-feedback d-block">
+            Please enter a subject.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            class="form-control"
+            rows="5"
+            placeholder="Write your message here..."
+            required
+            [(ngModel)]="formData.message"
+          ></textarea>
+          <div *ngIf="contactForm.submitted && contactForm.controls['message'].invalid" class="invalid-feedback d-block">
+            Please enter a message.
+          </div>
+        </div>
+
+        <div class="col-12 text-end">
+          <button type="submit" class="btn btn-primary btn-lg" [disabled]="isSending">
+            {{ isSending ? 'Sending…' : 'Send Message' }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

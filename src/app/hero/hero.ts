@@ -7,9 +7,9 @@ import { Component, signal, OnInit } from '@angular/core';
   styleUrl: './hero.css',
 })
 export class Hero implements OnInit {
-  dynamicText = signal('Pierce');
+  dynamicText = signal('Pierce here');
   displayedText = signal('');
-  private textOptions = ['Pierce', 'A Windows Engineer', 'A Mobile Developer', 'A Web Developer'];
+  private textOptions = ['Pierce here...', 'I build and maintain web applications', 'I also keep the IT systems behind them running'];
   private currentIndex = 0;
   private typingSpeed = 50; // milliseconds per character
   private delayBeforeDelete = 2000; // milliseconds before starting to delete
